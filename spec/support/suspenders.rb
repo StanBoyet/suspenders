@@ -15,7 +15,7 @@ module SuspendersTestHelpers
         ENV['TESTING'] = '1'
 
         %x(#{suspenders_bin} #{APP_NAME} #{arguments})
-        load_sample_factory
+        copy_sample_factory
       end
     end
   end
@@ -48,7 +48,7 @@ module SuspendersTestHelpers
     File.expand_path('../../../', __FILE__)
   end
 
-  def load_sample_factory
+  def copy_sample_factory
     FileUtils.mkdir_p(project_factories_path)
     FileUtils.cp(sample_factory_path, project_factories_path)
   end
